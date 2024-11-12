@@ -100,7 +100,7 @@ ImageEditorBackend/
 
 ## Endpoints
 
-   **Images:**
+  - **Images:**
      - `GET /api/images`
      - `GET /api/images/{id}`
      - `POST /api/images`
