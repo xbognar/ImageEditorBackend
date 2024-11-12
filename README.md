@@ -55,12 +55,12 @@ ImageEditorBackend/
 └── STOP3.bat
 ```
 
-### Script Details
+## Script Details
 
 - **START3.bat:** This script starts Docker Desktop (if not already running), navigates to the project directory, and starts the Docker containers using Docker Compose. It allows the user to run the application with a single click.
 - **STOP3.bat:** This script stops all running Docker containers related to the application and stops Docker Desktop. It provides a clean and easy way to shut down the application.
 
-### Installation
+## Installation
 
 1. **Clone the repository:**
 
@@ -98,9 +98,9 @@ ImageEditorBackend/
 
    Swagger documentation will be available at `http://localhost:8080/swagger`.
 
-4. **Endpoints:**
+## Endpoints
 
-   - **Images:**
+   **Images:**
      - `GET /api/images`
      - `GET /api/images/{id}`
      - `POST /api/images`
