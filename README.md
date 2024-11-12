@@ -14,7 +14,7 @@ The Image Editor API is designed to manage image data, including functionalities
 
 ## Features
 
-- **Image Management:** CRUD operations for images, including storing image data in binary format.
+- **Image Management:** CRUD operations for images.
 - **Database Migrations:** Automated database migrations using DbUp.
 - **Swagger Documentation:** Easy-to-use API documentation.
 - **Docker Support:** Containerized environment for consistent deployment.
@@ -107,19 +107,6 @@ ImageEditorBackend/
      - `PUT /api/images/{id}`
      - `DELETE /api/images/{id}`
 
-## Configuration
-
-#### Environment Variables:
-
-The application uses environment variables for configuration, specified in the `.env` file in the root directory.
-
-- **SA_PASSWORD**: The SQL Server administrator password.
-- **ConnectionStrings__DefaultConnection**: The connection string for the database.
-
-#### appsettings.json:
-
-Additional configuration settings can be adjusted in the `appsettings.json` or `appsettings.Development.json` files in the `WebAPI` project.
-
 ---
 
 ## Database Migrations
@@ -134,7 +121,18 @@ Migrations are applied automatically when the application starts. The `Program.c
 
 ---
 
-## Docker Configuration
+## Configuration
+
+#### Environment Variables:
+
+The application uses environment variables for configuration, specified in the `.env` file in the root directory.
+
+- **SA_PASSWORD**: The SQL Server administrator password.
+- **ConnectionStrings__DefaultConnection**: The connection string for the database.
+
+#### Dockerfile:
+
+The `Dockerfile` in the `WebAPI` project defines the build steps for the backend API container.
 
 #### Docker Compose:
 
@@ -142,8 +140,3 @@ The `docker-compose.yaml` file defines the services:
 
 - **imageprocessingapi**: The backend API service.
 - **mssql**: The SQL Server database service.
-
-#### Dockerfile:
-
-The `Dockerfile` in the `WebAPI` project defines the build steps for the backend API container.
-
