@@ -106,3 +106,44 @@ ImageEditorBackend/
      - `POST /api/images`
      - `PUT /api/images/{id}`
      - `DELETE /api/images/{id}`
+
+## Configuration
+
+#### Environment Variables:
+
+The application uses environment variables for configuration, specified in the `.env` file in the root directory.
+
+- **SA_PASSWORD**: The SQL Server administrator password.
+- **ConnectionStrings__DefaultConnection**: The connection string for the database.
+
+#### appsettings.json:
+
+Additional configuration settings can be adjusted in the `appsettings.json` or `appsettings.Development.json` files in the `WebAPI` project.
+
+---
+
+## Database Migrations
+
+#### DbUp:
+
+The application uses DbUp for database migrations. The SQL scripts are located in the `Migrations` folder within the `WebAPI` project.
+
+#### Automatic Migrations:
+
+Migrations are applied automatically when the application starts. The `Program.cs` file contains the logic to perform the migrations.
+
+---
+
+## Docker Configuration
+
+#### Docker Compose:
+
+The `docker-compose.yaml` file defines the services:
+
+- **imageprocessingapi**: The backend API service.
+- **mssql**: The SQL Server database service.
+
+#### Dockerfile:
+
+The `Dockerfile` in the `WebAPI` project defines the build steps for the backend API container.
+
