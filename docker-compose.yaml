@@ -1,0 +1,38 @@
+version: '3.8'
+
+services:
+  mssql:
+    image: mcr.microsoft.com/mssql/server:2019-latest
+    container_name: customimage_mssql
+    environment:
+      SA_PASSWORD: ${SA_PASSWORD}
+      ACCEPT_EULA: Y
+    ports:
+      - "1433:1433"
+    volumes:
+      - mssqldata:/var/opt/mssql
+    networks:
+      - customnetwork
+
+  imageprocessingapi:
+    build:
+      context: .
+      dockerfile: src/WebAPI/Dockerfile
+    container_name: customimage_imageprocessingapi
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ConnectionStrings__DefaultConnection: ${CONNECTION_STRING}
+    ports:
+      - "8080:8080"
+    depends_on:
+      - mssql
+    env_file:
+      - .env
+    networks:
+      - customnetwork
+
+volumes:
+  mssqldata:
+
+networks:
+  customnetwork:
